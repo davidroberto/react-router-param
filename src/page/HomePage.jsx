@@ -3,9 +3,6 @@ import Header from "../component/Header";
 import { productSortedByPrice, products } from "../utils/products-utils";
 
 function Home() {
-  // je trie product par cat
-  // je filtre par id
-
   const kitchenProducts = products.filter((product) => {
     return product.category === "cuisine";
   });
@@ -18,7 +15,7 @@ function Home() {
 
   return (
     <>
-      <Header />
+      <Header pageTitle="HomePage" />
       <main>
         <section>
           <h2>Les trois derniers produits cuisine : </h2>

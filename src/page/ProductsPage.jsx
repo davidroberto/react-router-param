@@ -5,7 +5,7 @@ import { productSortedByPrice } from "../utils/products-utils";
 function ProductsPage() {
   return (
     <>
-      <Header />
+      <Header pageTitle="Page de liste de produits" />
       <main>
         <h1>Les produits les moins chers pour les grosses pinces : </h1>
 
