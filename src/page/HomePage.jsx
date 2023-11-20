@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import Header from "../component/Header";
 import { productSortedByPrice, products } from "../utils/products-utils";
+import SideBar from "../component/Sidebar";
+import ProductCard from "../component/ProductCard";
 
 function Home() {
   const kitchenProducts = products.filter((product) => {
@@ -15,7 +17,8 @@ function Home() {
 
   return (
     <>
-      <Header pageTitle="HomePage" />
+      <Header pageTitle="HomePage" isUserAuthenticated={true} />
+      <SideBar textToDisplay="L'electromenager pour les personnes âgées" />
       <main>
         <section>
           <h2>Les trois derniers produits cuisine : </h2>
@@ -34,16 +37,8 @@ function Home() {
         </section>
         <section>
           <h3>Produits les moins chers : </h3>
-          {cheapestProducts.map((product) => {
-            return (
-              <article>
-                <h3>{product.title}</h3>
-                <p>{product.price}</p>
-                <Link to={`/products/${product.id}`}>
-                  <button>Voir le produit</button>
-                </Link>
-              </article>
-            );
+          {cheapestProducts.map((productValue) => {
+            return <ProductCard productProps={productValue} />;
           })}
         </section>
       </main>

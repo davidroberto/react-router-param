@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Header({ pageTitle }) {
+function Header({ pageTitle, isUserAuthenticated }) {
   return (
     <header>
       <img
@@ -13,13 +13,16 @@ function Header({ pageTitle }) {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">{pageTitle === "HomePage" ? <strong>Home</strong> : <p>Home</p>}</Link>
           </li>
           <li>
-            <Link to="/products">Products</Link>
+            <Link to="/products">
+              {pageTitle === "Page de liste de produits" ? <strong>Products</strong> : <p>Products</p>}
+            </Link>
           </li>
         </ul>
       </nav>
+      {isUserAuthenticated ? <p>Bonjour</p> : <p>Connectez-vous </p>}
     </header>
   );
 }
